@@ -1,0 +1,24 @@
+﻿<Window x:Class="NineRouterBrowser.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
+        Title="9Router" Width="1200" Height="800"
+        Icon="/nineroutericon.ico">
+    <DockPanel>
+        <ToolBar DockPanel.Dock="Top">
+            <Button x:Name="RefreshButton" Content="⟳ Refresh (F5)" Click="RefreshButton_Click" Margin="4,0"/>
+            <Separator/>
+            <TextBlock Text="http://localhost:20128" VerticalAlignment="Center" Opacity="0.6" Margin="4,0"/>
+        </ToolBar>
+        <Grid>
+            <wv2:WebView2 x:Name="Browser"/>
+            <Border x:Name="OfflineOverlay" Visibility="Collapsed" Background="#F5F5F5">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock Text="Waiting for 9router…" FontSize="22" FontWeight="SemiBold" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Is 9router running on http://localhost:20128 ?" Margin="0,8,0,16" HorizontalAlignment="Center"/>
+                    <Button x:Name="RetryButton" Content="Retry" Width="120" Height="32" HorizontalAlignment="Center" Click="RetryButton_Click"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </DockPanel>
+</Window>
